@@ -1,0 +1,47 @@
+<a href="https://m.zaozuo.com/e/pre716" style="position: relative;display:block;font-family: 'PingFang SC',Arial,'Microsoft YaHei',sans-serif;">
+<img src="https://img.zaozuo.com/13d0e9ce8d64500e42604c6c01ab4bc3" style="width: 100%; height: auto;" />
+<div id="double11-countdown" style="position: absolute;top: 26.5%;margin-left: 6.1%;color: #000;width: 69.5%;z-index: 3;line-height: 1;opacity: 0;">
+	<p id="time" style="margin: 0;font-size: 3.28vw;line-height: 3.8vw;font-weight: bolder;color:#000;"><i style="white-space: nowrap;display: inline-block;font-style: normal;font-size: 3.28vw;line-height: 3.8vw;">距活动结束<span style="display:inline-block;margin-left:2%">仅剩</span></i><span style="font-size: 3.8vw;line-height: 3.8vw;margin-left: 2%;position:relative;top: 0.2vw;" class="detail-time"><span id="hour"></span><span id="dot1" style="opacity: 0;">:</span><span id="minute"></span><span id="dot2" style="opacity: 0;">:</span><span id="second"></span></span></p>
+	<p style="font-size: 2.78vw;font-weight: bolder;color: #000;">一年最佳造作时</p>
+</div>
+<script type="text/javascript">
+var officialFn = function(){
+	var setIntervalTime;
+	var endHref = false;
+	var first = true;
+	var refeshAppFirst = true;
+	var officialCountdownTime = function(time,timebox){
+		var now = new Date();
+			endDate = new Date(time),
+			leftTime=endDate.getTime()-now.getTime(),
+			second = parseInt(leftTime/1000),
+			leftday=Math.floor(second/(60*60*24)),
+			lefthour=Math.floor((second-leftday*24*60*60)/3600),
+			leftminute=Math.floor((second-leftday*24*60*60-lefthour*3600)/60),
+			leftsecond=Math.floor(second-leftday*24*60*60-lefthour*3600-leftminute*60),
+			$countDownTime = document.getElementById(timebox),
+			$hour = document.getElementById('hour'),
+			$minute = document.getElementById('minute'),
+			$second = document.getElementById('second');
+		document.getElementById('dot1').style.opacity = 1;
+		document.getElementById('dot2').style.opacity = 1;
+		lefthour < 10 ? $hour.innerHTML = '0'+lefthour : $hour.innerHTML = lefthour;
+		leftminute < 10 ? $minute.innerHTML = '0'+leftminute : $minute.innerHTML = leftminute;
+		leftsecond < 10 ? $second.innerHTML = '0'+leftsecond : $second.innerHTML = leftsecond;
+		if (leftTime <= 0) {
+			clearInterval(setIntervalTime);
+			endHref = true;
+		};
+		if(first) {
+			$countDownTime.style.opacity = 1;
+			first = false;
+		}
+	};
+	setIntervalTime = setInterval(function(){
+		officialCountdownTime('2018/11/10 00:00:00','double11-countdown');
+	}, 1000);
+};
+document.getElementsByTagName('body')[0].style.margin = "0px";
+officialFn();
+</script>
+</a>
