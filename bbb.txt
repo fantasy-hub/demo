@@ -1,0 +1,19 @@
+
+<html>
+  <head>
+    <link rel="stylesheet" href="a.css"/>
+    <style></style>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <input type="submit" id="text1" value="submit"/>
+    </div>
+    <div></div>
+    <script src="./ajax.js"></script>
+  </body>
+</html>

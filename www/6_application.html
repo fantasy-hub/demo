@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        用户: <input type="text" id="user"><br />
+        密码: <input type="password" id="pass"><br />
+        <input type="button" value="注册" id="reg_btn">
+        <input type="button" value="登录" id="login_btn">
+    </div>
+
+    <script src="./jquery-3.3.1.js"></script>
+    <!-- <script src="./ajax.js"></script> -->
+    <script>
+        $(function () {
+            const user = $('#user').val(),
+                  pass = $('#pass').val(),
+                  regBtn = $('#reg_btn'),
+                  loginBtn = $('#login_btn');
+            
+            loginBtn.on('click', function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/user',
+                    data: {
+                        act: 'login',
+                        user: user,
+                        pass: pass,
+                    }
+                }).done(function (str) {
+                    // 解析str
+                    console.log(str);
+                    var json = eval('('+str+')');
+                    if (json.ok) {
+                        alert('登录成功');
+                    } else {
+                        alert(`登录失败${json.msg}`);
+                    }
+                }).fail(function () {
+                    alert('通信错误');
+                });
+            });
+            
+            regBtn.on('click', function (str) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/user',
+                    data: {
+                        act: 'reg',
+                        user: user,
+                        pass: pass,
+                    }
+                }).done(function (str) {
+                    var json = eval('('+str+')');
+                    if (json.ok) {
+                        alert('注册成功');
+                    } else {
+                        alert(`注册失败${json.msg}`);
+                    }
+                }).fail(function () {
+                    alert('通信错误');
+                })
+            })
+        });
+    </script>
+</body>
+</html>

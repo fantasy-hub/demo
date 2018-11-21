@@ -1,0 +1,23 @@
+html
+    head
+        link(rel="stylesheet", href="a.css")
+        style
+    body
+        div(style="width: 200px; height: 200px; background: yellow")
+        div(style={width: '200px', height: '200px', background: 'yellow'})
+        div(class="aaa left-wrap active")
+        div(class=['aaa', 'left-wrap', 'active'])
+        div(title="aaa", id="div1")
+        div&attributes({title: 'aaa', id: 'div1'})
+        div
+            ul
+                li
+                    a(href="http://www.baidu.com") 百度
+                li
+                    a(href="http://www.zhinengshe.com") 智能社
+                li
+                    a(href="http://www.zaozuo.com") 造作
+            input(type="submit", id="text1", value="submit")
+        div
+        script(src="./ajax.js")
+        script
