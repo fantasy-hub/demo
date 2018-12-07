@@ -34,7 +34,7 @@ server.use('/', function (req, res) {
     res.send('ojbk');
 
     // 4.删除session
-    delete req.session;
+    // delete req.session;
 });
 
 server.listen('8082');
